@@ -1,0 +1,75 @@
+import random
+user_wins = 0
+computer_wins = 0
+ties = 0
+
+options = ['rock', 'paper', 'scissors']
+
+#1 rock 2 paper 3 scissors
+print('Last game was cool but lets play Rock, Paper, Scissors')
+user_ready = input('Are you ready, y or n ').lower()
+if user_ready == ('n') or user_ready == ('no'):
+    print('Maybe Next time')
+    quit()
+if user_ready == ('y') or user_ready == ('yes'):
+    print('Lets Go')
+print() #blank line
+    
+if user_ready == ('y') or user_ready == ('yes'):
+        print('You go first')
+        print()
+       
+while True:
+    computer_choices = random.randint(0,2)
+    computer_pick = options[computer_choices]
+    player_choice = input('Rock, Paper, Scissors? or q to quit  ' ).lower()
+    print(f'Computer Picked, {computer_pick} .')
+    
+    if player_choice == ('q'):
+        print()
+        print('See ya next time')
+        break
+    
+    if player_choice == "rock" and computer_pick == "scissors":
+        print("You won!")
+        user_wins += 1
+
+    elif player_choice == "paper" and computer_pick == "rock":
+        print("You won!")
+        user_wins += 1
+
+    elif player_choice == "scissors" and computer_pick == "paper":
+        print("You won!")
+        user_wins += 1
+        
+    if computer_pick == "rock" and player_choice == "scissors":
+        print("You Lost!")
+        computer_wins += 1    
+        
+    if computer_pick == "paper" and player_choice == "rock":
+        print("You Lost!")
+        computer_wins += 1    
+        
+    if computer_pick == "scissors" and player_choice == "paper":
+        print("You Lost!")
+        computer_wins += 1
+
+    elif computer_pick == "paper" and player_choice == "paper":
+        print("Its a tie!")
+        ties += 1
+
+    elif computer_pick == "scissors" and player_choice == "scissors":
+        print("Its a tie")
+        ties +=1
+         
+    if computer_pick == "rock" and player_choice == "rock":
+        print("Its a tie")
+        ties += 1    
+
+    if player_choice not in options:
+        print('not a option, Try again')
+        
+print()        
+print(f'Youve won, {user_wins} times,')
+print(f'Computer won, {computer_wins} times,')
+print(f'Youve tied {ties} times.')
